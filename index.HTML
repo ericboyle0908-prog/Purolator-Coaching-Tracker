@@ -1,0 +1,1358 @@
+<title>Purolator Coaching Hub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    color-scheme: light;
+    --puro-red: #E31B23;
+    --puro-red-hover: #C5131A;
+    --puro-red-tint: rgba(227,27,35,0.08);
+    --puro-red-tint-strong: rgba(227,27,35,0.16);
+
+    --puro-blue: #16407D;
+    --puro-blue-hover: #0F2F5F;
+    --puro-blue-tint: rgba(22,64,125,0.08);
+    --puro-blue-tint-strong: rgba(22,64,125,0.18);
+
+    --ink: #14181F;
+    --ink-secondary: #5C6570;
+    --ink-muted: #8D93A0;
+
+    --page-bg: #F2F4F7;
+    --surface: #FFFFFF;
+    --surface-sunken: #F5F7FA;
+    --border: #E0E4EA;
+    --border-strong: #C7CEDA;
+
+    --shadow-sm: 0 1px 2px rgba(15,24,40,0.06);
+    --shadow-md: 0 6px 20px rgba(15,24,40,0.08);
+    --shadow-lg: 0 16px 40px rgba(15,24,40,0.16);
+    --focus-ring: 0 0 0 4px var(--puro-blue-tint-strong);
+
+    --status-good: #0C8F0C;
+    --status-warning: #B4790E;
+    --status-critical: #D03B3B;
+    --status-good-bg: rgba(12,143,12,0.10);
+    --status-warning-bg: rgba(180,121,14,0.12);
+    --status-critical-bg: rgba(208,59,59,0.10);
+
+    --cat-1: #2A78D6; --cat-1-bg: rgba(42,120,214,0.10);
+    --cat-2: #C85A2C; --cat-2-bg: rgba(235,104,52,0.12);
+    --cat-3: #17966A; --cat-3-bg: rgba(27,175,122,0.12);
+    --cat-4: #A6740A; --cat-4-bg: rgba(237,161,0,0.14);
+    --cat-5: #C24C79; --cat-5-bg: rgba(232,123,164,0.14);
+    --cat-6: #147814; --cat-6-bg: rgba(0,131,0,0.10);
+
+    --font-display: 'Manrope', system-ui, -apple-system, sans-serif;
+    --font-body: 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
+    --font-mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      color-scheme: dark;
+      --puro-red: #FF4136;
+      --puro-red-hover: #FF5A50;
+      --puro-red-tint: rgba(255,65,54,0.14);
+      --puro-red-tint-strong: rgba(255,65,54,0.22);
+
+      --puro-blue: #5B8FE0;
+      --puro-blue-hover: #74A2E8;
+      --puro-blue-tint: rgba(91,143,224,0.16);
+      --puro-blue-tint-strong: rgba(91,143,224,0.26);
+
+      --ink: #F1F3F6;
+      --ink-secondary: #ABB3C0;
+      --ink-muted: #7B8291;
+
+      --page-bg: #0E1116;
+      --surface: #191D24;
+      --surface-sunken: #222732;
+      --border: #2D3340;
+      --border-strong: #3D4454;
+
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.3);
+      --shadow-md: 0 6px 20px rgba(0,0,0,0.35);
+      --shadow-lg: 0 20px 48px rgba(0,0,0,0.5);
+
+      --status-good: #3CC23C; --status-good-bg: rgba(60,194,60,0.14);
+      --status-warning: #F0AD35; --status-warning-bg: rgba(240,173,53,0.16);
+      --status-critical: #F06C6C; --status-critical-bg: rgba(240,108,108,0.16);
+
+      --cat-1: #5B9AE8; --cat-1-bg: rgba(91,154,232,0.16);
+      --cat-2: #E37A4C; --cat-2-bg: rgba(217,89,38,0.18);
+      --cat-3: #35B888; --cat-3-bg: rgba(25,158,112,0.18);
+      --cat-4: #D9A21E; --cat-4-bg: rgba(201,133,0,0.2);
+      --cat-5: #E080A6; --cat-5-bg: rgba(213,81,129,0.2);
+      --cat-6: #4CAA4C; --cat-6-bg: rgba(0,131,0,0.18);
+    }
+  }
+  :root[data-theme="dark"]{
+    color-scheme: dark;
+    --puro-red: #FF4136;
+    --puro-red-hover: #FF5A50;
+    --puro-red-tint: rgba(255,65,54,0.14);
+    --puro-red-tint-strong: rgba(255,65,54,0.22);
+
+    --puro-blue: #5B8FE0;
+    --puro-blue-hover: #74A2E8;
+    --puro-blue-tint: rgba(91,143,224,0.16);
+    --puro-blue-tint-strong: rgba(91,143,224,0.26);
+
+    --ink: #F1F3F6;
+    --ink-secondary: #ABB3C0;
+    --ink-muted: #7B8291;
+
+    --page-bg: #0E1116;
+    --surface: #191D24;
+    --surface-sunken: #222732;
+    --border: #2D3340;
+    --border-strong: #3D4454;
+
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.3);
+    --shadow-md: 0 6px 20px rgba(0,0,0,0.35);
+    --shadow-lg: 0 20px 48px rgba(0,0,0,0.5);
+
+    --status-good: #3CC23C; --status-good-bg: rgba(60,194,60,0.14);
+    --status-warning: #F0AD35; --status-warning-bg: rgba(240,173,53,0.16);
+    --status-critical: #F06C6C; --status-critical-bg: rgba(240,108,108,0.16);
+
+    --cat-1: #5B9AE8; --cat-1-bg: rgba(91,154,232,0.16);
+    --cat-2: #E37A4C; --cat-2-bg: rgba(217,89,38,0.18);
+    --cat-3: #35B888; --cat-3-bg: rgba(25,158,112,0.18);
+    --cat-4: #D9A21E; --cat-4-bg: rgba(201,133,0,0.2);
+    --cat-5: #E080A6; --cat-5-bg: rgba(213,81,129,0.2);
+    --cat-6: #4CAA4C; --cat-6-bg: rgba(0,131,0,0.18);
+  }
+
+  *{ box-sizing: border-box; }
+  body{
+    font-family: var(--font-body);
+    background: var(--page-bg);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1,h2,h3{ font-family: var(--font-display); margin: 0; text-wrap: balance; }
+  p{ margin: 0; }
+  button, input, select, textarea{ font-family: inherit; color: inherit; }
+  button{ cursor: pointer; }
+  .tnum{ font-variant-numeric: tabular-nums; }
+  .mono{ font-family: var(--font-mono); }
+
+  a{ color: var(--puro-red); }
+
+  /* ---------- Shell ---------- */
+  #app{ min-height: 100%; padding-bottom: 64px; }
+
+  .topbar{
+    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 40;
+    background: color-mix(in srgb, var(--surface) 92%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid var(--puro-blue);
+  }
+  .topbar-inner{
+    max-width: 1160px; margin: 0 auto; padding: 14px 24px;
+    display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
+  }
+  .brand{ display: flex; align-items: center; gap: 12px; margin-right: auto; }
+  .brand-mark{
+    width: 38px; height: 38px; border-radius: 11px; background: var(--puro-red);
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    box-shadow: var(--shadow-sm);
+  }
+  .brand-mark svg{ width: 20px; height: 20px; }
+  .brand-text{ line-height: 1.15; }
+  .brand-eyebrow{
+    font-size: 10.5px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.09em; color: var(--puro-blue);
+  }
+  .brand-title{ font-size: 17px; font-weight: 800; letter-spacing: -0.01em; }
+
+  .nav-tabs{
+    display: flex; background: var(--surface-sunken); padding: 4px;
+    border-radius: 12px; gap: 2px; border: 1px solid var(--border);
+  }
+  .nav-tab{
+    background: transparent; border: none; padding: 8px 14px; font-size: 13px;
+    font-weight: 600; color: var(--ink-secondary); border-radius: 9px;
+    transition: background .15s ease, color .15s ease; white-space: nowrap;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .nav-tab .count{
+    font-size: 11px; padding: 1px 6px; border-radius: 20px; background: var(--border);
+    color: var(--ink-secondary); font-weight: 700;
+  }
+  .nav-tab.active{ background: var(--surface); color: var(--puro-blue); box-shadow: var(--shadow-sm); }
+  .nav-tab.active .count{ background: var(--puro-blue-tint); color: var(--puro-blue); }
+  .nav-tab:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible{
+    outline: none; box-shadow: var(--focus-ring); border-radius: 9px;
+  }
+
+  .topbar-actions{ display: flex; align-items: center; gap: 8px; }
+
+  main{ max-width: 1160px; margin: 0 auto; padding: 28px 24px 0; }
+  @media (max-width: 640px){ main{ padding: 20px 16px 0; } .topbar-inner{ padding: 12px 16px; } }
+
+  .view{ display: none; }
+  .view.active{ display: block; animation: fadein .25s ease both; }
+  @keyframes fadein{ from{ opacity: 0; transform: translateY(4px);} to{ opacity:1; transform:none; } }
+  @media (prefers-reduced-motion: reduce){ .view.active{ animation: none; } }
+
+  .view-head{ display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; margin-bottom: 20px; flex-wrap: wrap; }
+  .view-head h1{ font-size: 24px; }
+  .view-head .sub{ color: var(--ink-secondary); font-size: 13.5px; margin-top: 4px; }
+
+  /* ---------- Buttons ---------- */
+  .btn{
+    display: inline-flex; align-items: center; justify-content: center; gap: 7px;
+    border-radius: 11px; font-size: 13.5px; font-weight: 600; padding: 10px 16px;
+    border: 1px solid transparent; transition: transform .08s ease, background .15s ease, border-color .15s ease, color .15s ease;
+    line-height: 1.2;
+  }
+  .btn:active{ transform: scale(0.97); }
+  .btn-primary{ background: var(--puro-red); color: #fff; box-shadow: 0 4px 14px var(--puro-red-tint-strong); }
+  .btn-primary:hover{ background: var(--puro-red-hover); }
+  .btn-primary:disabled{ opacity: .5; cursor: not-allowed; transform: none; }
+  .btn-secondary{ background: var(--surface); border-color: var(--border-strong); color: var(--ink); box-shadow: var(--shadow-sm); }
+  .btn-secondary:hover{ border-color: var(--puro-red); color: var(--puro-red); }
+  .btn-ghost{ background: transparent; border-color: transparent; color: var(--ink-secondary); }
+  .btn-ghost:hover{ background: var(--surface-sunken); color: var(--ink); }
+  .btn-danger{ background: var(--status-critical-bg); color: var(--status-critical); }
+  .btn-danger:hover{ background: var(--status-critical); color: #fff; }
+  .btn-sm{ padding: 7px 12px; font-size: 12.5px; border-radius: 9px; }
+  .btn-block{ width: 100%; }
+  .btn[disabled]{ opacity: .5; cursor: not-allowed; }
+
+  /* ---------- Cards & form ---------- */
+  .card{
+    background: var(--surface); border: 1px solid var(--border); border-radius: 18px;
+    padding: 22px; box-shadow: var(--shadow-sm);
+  }
+  .card + .card{ margin-top: 16px; }
+  .card-label{
+    font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em;
+    color: var(--puro-blue); margin-bottom: 12px; display: flex; align-items: center; gap: 6px;
+  }
+  .grid-2{ display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .grid-3{ display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+  @media (max-width: 720px){ .grid-2, .grid-3{ grid-template-columns: 1fr; } }
+
+  .field{ display: flex; flex-direction: column; gap: 6px; }
+  .field + .field{ margin-top: 14px; }
+  .field-row{ display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  label{ font-size: 12.5px; font-weight: 600; color: var(--ink-secondary); display: flex; align-items: center; gap: 6px; }
+  label .req{ color: var(--puro-red); }
+  label .hint{ font-weight: 400; color: var(--ink-muted); margin-left: auto; }
+
+  input[type="text"], input[type="date"], select, textarea{
+    width: 100%; padding: 11px 14px; background: var(--surface-sunken);
+    border: 1px solid var(--border); border-radius: 11px; font-size: 14.5px;
+    color: var(--ink); transition: border-color .15s ease, box-shadow .15s ease;
+  }
+  textarea{ resize: vertical; min-height: 92px; line-height: 1.5; }
+  input:focus, select:focus, textarea:focus{ outline: none; border-color: var(--puro-blue); box-shadow: var(--focus-ring); }
+  input.invalid, textarea.invalid, select.invalid{ border-color: var(--status-critical); }
+  .char-count{ font-size: 11px; color: var(--ink-muted); text-align: right; }
+
+  .select-wrap{ position: relative; }
+  select{ appearance: none; padding-right: 34px; }
+  .select-wrap::after{
+    content: ""; position: absolute; right: 13px; top: 50%; width: 8px; height: 8px;
+    border-right: 1.5px solid var(--ink-muted); border-bottom: 1.5px solid var(--ink-muted);
+    transform: translateY(-65%) rotate(45deg); pointer-events: none;
+  }
+
+  .toggle-row{
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    padding: 12px 14px; background: var(--surface-sunken); border: 1px solid var(--border); border-radius: 11px;
+  }
+  .toggle-row .t-label{ font-size: 13.5px; font-weight: 600; }
+  .toggle-row .t-sub{ font-size: 12px; color: var(--ink-secondary); margin-top: 2px; }
+  .switch{ position: relative; width: 42px; height: 24px; flex-shrink: 0; }
+  .switch input{ opacity: 0; position: absolute; inset: 0; margin: 0; cursor: pointer; }
+  .switch .track{
+    position: absolute; inset: 0; background: var(--border-strong); border-radius: 20px; transition: background .15s ease;
+  }
+  .switch .thumb{
+    position: absolute; top: 3px; left: 3px; width: 18px; height: 18px; border-radius: 50%;
+    background: #fff; box-shadow: var(--shadow-sm); transition: transform .15s ease;
+  }
+  .switch input:checked + .track{ background: var(--puro-red); }
+  .switch input:checked + .track + .thumb{ transform: translateX(18px); }
+  .switch input:focus-visible + .track{ box-shadow: var(--focus-ring); }
+
+  .followup-reveal{ overflow: hidden; max-height: 0; transition: max-height .2s ease; }
+  .followup-reveal.open{ max-height: 200px; margin-top: 12px; }
+
+  .outcome-picker{ display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; }
+  @media (max-width: 520px){ .outcome-picker{ grid-template-columns: 1fr; } }
+  .outcome-opt{
+    border: 1.5px solid var(--border); background: var(--surface-sunken); border-radius: 11px;
+    padding: 10px 12px; text-align: left; display: flex; flex-direction: column; gap: 2px;
+  }
+  .outcome-opt .o-title{ font-size: 13px; font-weight: 700; }
+  .outcome-opt .o-sub{ font-size: 11.5px; color: var(--ink-secondary); }
+  .outcome-opt[data-checked="true"]{ border-color: var(--picker-color, var(--puro-red)); background: var(--picker-bg, var(--puro-red-tint)); }
+  .outcome-opt[data-checked="true"] .o-title{ color: var(--picker-color, var(--puro-red)); }
+
+  .form-actions{ display: flex; align-items: center; gap: 10px; margin-top: 22px; }
+  .editing-banner{
+    display: flex; align-items: center; gap: 10px; background: var(--status-warning-bg);
+    color: var(--status-warning); border: 1px solid var(--status-warning);
+    padding: 10px 14px; border-radius: 12px; font-size: 13px; font-weight: 600; margin-bottom: 18px;
+  }
+  .editing-banner button{ margin-left: auto; }
+
+  .db-banner{
+    display: flex; align-items: center; gap: 10px; background: var(--status-critical-bg);
+    color: var(--status-critical); border: 1px solid var(--status-critical);
+    padding: 10px 14px; border-radius: 12px; font-size: 13px; font-weight: 600; margin-bottom: 18px;
+  }
+
+  /* ---------- Chips / badges / pills ---------- */
+  .chip{
+    display: inline-flex; align-items: center; gap: 6px; font-size: 11.5px; font-weight: 600;
+    padding: 4px 10px 4px 8px; border-radius: 20px; white-space: nowrap;
+  }
+  .chip .dot{ width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+  .badge-duration{
+    background: var(--puro-blue-tint); color: var(--puro-blue); padding: 4px 10px; border-radius: 10px;
+    font-weight: 700; font-size: 12.5px; white-space: nowrap;
+  }
+  .pill{ display: inline-flex; align-items: center; gap: 5px; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 20px; }
+  .pill-good{ background: var(--status-good-bg); color: var(--status-good); }
+  .pill-warning{ background: var(--status-warning-bg); color: var(--status-warning); }
+  .pill-critical{ background: var(--status-critical-bg); color: var(--status-critical); }
+  .pill-neutral{ background: var(--surface-sunken); color: var(--ink-secondary); border: 1px solid var(--border); }
+
+  .avatar{
+    width: 40px; height: 40px; border-radius: 50%; background: var(--surface-sunken);
+    border: 1px solid var(--border); display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-display); font-weight: 800; font-size: 14px; color: var(--puro-blue); flex-shrink: 0;
+  }
+
+  /* ---------- Dashboard ---------- */
+  .stat-grid{ display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  @media (max-width: 900px){ .stat-grid{ grid-template-columns: repeat(2,1fr); } }
+  @media (max-width: 480px){ .stat-grid{ grid-template-columns: 1fr; } }
+  .stat-tile{
+    background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 16px 18px;
+    display: flex; flex-direction: column; gap: 6px; box-shadow: var(--shadow-sm);
+  }
+  .stat-tile .s-label{ font-size: 11.5px; font-weight: 600; color: var(--ink-secondary); display: flex; align-items: center; justify-content: space-between; }
+  .stat-tile .s-value{ font-family: var(--font-display); font-size: 28px; font-weight: 800; letter-spacing: -0.01em; }
+  .stat-tile .s-note{ font-size: 11.5px; color: var(--ink-muted); }
+  .stat-tile.warn .s-value{ color: var(--status-warning); }
+  .stat-tile.critical .s-value{ color: var(--status-critical); }
+
+  .dash-columns{ display: grid; grid-template-columns: 1.15fr 1fr; gap: 16px; align-items: start; margin-top: 16px; }
+  @media (max-width: 900px){ .dash-columns{ grid-template-columns: 1fr; } }
+
+  .bar-row{ display: grid; grid-template-columns: 152px 1fr 34px; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .bar-row:last-child{ margin-bottom: 0; }
+  .bar-row .b-label{ font-size: 12.5px; font-weight: 600; color: var(--ink); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .bar-track{ height: 10px; border-radius: 6px; background: var(--surface-sunken); border: 1px solid var(--border); overflow: hidden; }
+  .bar-fill{ height: 100%; border-radius: 6px; transition: width .4s ease; }
+  .bar-row .b-value{ font-size: 12.5px; font-weight: 700; text-align: right; }
+  @media (max-width: 480px){ .bar-row{ grid-template-columns: 90px 1fr 28px; } }
+
+  .list-row{
+    display: flex; align-items: center; gap: 12px; padding: 11px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .list-row:last-child{ border-bottom: none; padding-bottom: 0; }
+  .list-row:first-child{ padding-top: 0; }
+  .list-row .lr-main{ flex: 1; min-width: 0; }
+  .list-row .lr-name{ font-size: 13.5px; font-weight: 700; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .list-row .lr-sub{ font-size: 11.5px; color: var(--ink-secondary); margin-top: 1px; }
+  .list-row .lr-actions{ display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+
+  .followup-empty, .recent-empty{ text-align: center; padding: 28px 12px; color: var(--ink-secondary); font-size: 13px; }
+
+  /* ---------- Archive ---------- */
+  .archive-controls{
+    display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-bottom: 18px;
+  }
+  .search-box{ position: relative; flex: 1; min-width: 200px; }
+  .search-box input{ padding-left: 38px; }
+  .search-box svg{ position: absolute; left: 12px; top: 50%; transform: translateY(-50%); width: 16px; height: 16px; color: var(--ink-muted); }
+  .archive-controls select{ width: auto; min-width: 150px; }
+  .archive-controls .select-wrap{ flex: 0 0 auto; }
+
+  .session-grid{ display: flex; flex-direction: column; gap: 12px; }
+  .session-card{
+    background: var(--surface); border-radius: 16px; padding: 16px 18px; border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm); display: flex; gap: 14px; align-items: center; cursor: pointer;
+    transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+  }
+  .session-card:hover{ transform: translateY(-2px); box-shadow: var(--shadow-md); border-color: var(--puro-blue-tint-strong); }
+  .session-card .sc-body{ flex: 1; min-width: 0; }
+  .session-card h3{ font-size: 15.5px; font-weight: 700; }
+  .session-card .sc-tags{ display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; align-items: center; }
+  .session-card .sc-meta{ font-size: 12px; color: var(--ink-secondary); margin-top: 6px; display: flex; gap: 14px; flex-wrap: wrap; }
+  .session-card .sc-right{ display: flex; flex-direction: column; align-items: flex-end; gap: 8px; flex-shrink: 0; }
+  @media (max-width: 560px){
+    .session-card{ flex-direction: column; align-items: stretch; }
+    .session-card .sc-right{ flex-direction: row; align-items: center; justify-content: space-between; }
+  }
+
+  .empty-state{
+    text-align: center; padding: 56px 24px; color: var(--ink-secondary); background: var(--surface);
+    border: 1px dashed var(--border-strong); border-radius: 18px;
+  }
+  .empty-state .es-icon{ font-size: 30px; margin-bottom: 10px; }
+  .empty-state .es-title{ font-family: var(--font-display); font-weight: 800; color: var(--ink); font-size: 16px; margin-bottom: 4px; }
+  .empty-state .es-sub{ font-size: 13px; max-width: 360px; margin: 0 auto 16px; }
+
+  /* ---------- Detail ---------- */
+  .back-link{
+    display: inline-flex; align-items: center; gap: 6px; color: var(--puro-red); font-size: 13.5px;
+    font-weight: 700; background: none; border: none; padding: 6px 0; margin-bottom: 14px;
+  }
+  .detail-head{ display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; flex-wrap: wrap; margin-bottom: 18px; }
+  .detail-head .dh-left{ display: flex; gap: 14px; align-items: center; }
+  .detail-head .avatar{ width: 52px; height: 52px; font-size: 17px; }
+  .detail-head h2{ font-size: 21px; }
+  .detail-head .dh-tags{ display: flex; gap: 6px; margin-top: 8px; flex-wrap: wrap; }
+  .detail-actions{ display: flex; gap: 8px; flex-wrap: wrap; }
+
+  .kv-grid{ display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; margin-bottom: 4px; }
+  @media (max-width: 720px){ .kv-grid{ grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 480px){ .kv-grid{ grid-template-columns: 1fr; } }
+  .kv{ background: var(--surface-sunken); border: 1px solid var(--border); border-radius: 12px; padding: 12px 14px; }
+  .kv .kv-label{ font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--ink-muted); margin-bottom: 4px; }
+  .kv .kv-value{ font-size: 13.5px; font-weight: 600; }
+
+  .section-heading{ font-size: 14px; font-weight: 700; margin: 20px 0 8px; display: flex; align-items: center; gap: 8px; }
+  .content-box{
+    background: var(--surface-sunken); border: 1px solid var(--border); padding: 14px 16px; border-radius: 12px;
+    font-size: 14px; color: var(--ink); line-height: 1.6; white-space: pre-wrap;
+  }
+  .followup-box{
+    display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+    padding: 14px 16px; border-radius: 12px; margin-top: 20px; border: 1px solid;
+  }
+  .followup-box.state-good{ background: var(--status-good-bg); border-color: var(--status-good); }
+  .followup-box.state-warning{ background: var(--status-warning-bg); border-color: var(--status-warning); }
+  .followup-box.state-critical{ background: var(--status-critical-bg); border-color: var(--status-critical); }
+  .followup-box .fb-title{ font-size: 13.5px; font-weight: 700; }
+  .followup-box .fb-sub{ font-size: 12px; margin-top: 2px; opacity: .85; }
+
+  /* ---------- Toast ---------- */
+  #toast-host{ position: fixed; bottom: 22px; left: 50%; transform: translateX(-50%); z-index: 100; display: flex; flex-direction: column; gap: 8px; align-items: center; padding: 0 16px; width: 100%; pointer-events: none; }
+  .toast{
+    pointer-events: auto; background: var(--ink); color: var(--page-bg); font-size: 13px; font-weight: 600;
+    padding: 11px 18px; border-radius: 30px; box-shadow: var(--shadow-lg); display: flex; align-items: center; gap: 8px;
+    animation: toast-in .2s ease both; max-width: 92vw;
+  }
+  .toast.error{ background: var(--status-critical); color: #fff; }
+  @keyframes toast-in{ from{ opacity: 0; transform: translateY(8px);} to{ opacity: 1; transform: none;} }
+
+  footer{ text-align: center; margin-top: 44px; font-size: 11.5px; color: var(--ink-muted); padding: 0 24px 24px; }
+
+  /* ---------- Skeleton ---------- */
+  .skel{ background: linear-gradient(90deg, var(--surface-sunken) 25%, var(--border) 37%, var(--surface-sunken) 63%); background-size: 400% 100%; animation: shimmer 1.4s ease infinite; border-radius: 10px; }
+  @keyframes shimmer{ 0%{ background-position: 100% 0; } 100%{ background-position: 0 0; } }
+  @media (prefers-reduced-motion: reduce){ .skel{ animation: none; } }
+
+  /* ---------- Print ---------- */
+  @media print{
+    .no-print{ display: none !important; }
+    body{ background: #fff; }
+    #app{ padding: 0; }
+    main{ max-width: none; padding: 0; }
+    .card, .content-box{ box-shadow: none !important; border-color: #ccc !important; }
+  }
+</style>
+
+<div id="app">
+  <header class="topbar no-print">
+    <div class="topbar-inner">
+      <div class="brand">
+        <div class="brand-mark">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12.5 10 18 20 6" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="brand-text">
+          <div class="brand-eyebrow">Purolator Operations</div>
+          <div class="brand-title">Coaching Hub</div>
+        </div>
+      </div>
+      <nav class="nav-tabs" role="tablist" aria-label="Views">
+        <button class="nav-tab" data-view="dashboard" role="tab">Dashboard</button>
+        <button class="nav-tab" data-view="log" role="tab">New Session</button>
+        <button class="nav-tab" data-view="archive" role="tab">Archive <span class="count" id="archive-count">0</span></button>
+      </nav>
+      <div class="topbar-actions">
+        <button class="btn btn-secondary btn-sm" id="export-btn" type="button" hidden>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Export CSV
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- DASHBOARD -->
+    <section class="view" id="view-dashboard">
+      <div class="view-head">
+        <div>
+          <h1>Team overview</h1>
+          <div class="sub">Coaching activity across the operations floor.</div>
+        </div>
+      </div>
+      <div id="dash-banner"></div>
+      <div class="stat-grid" id="stat-grid"></div>
+      <div class="dash-columns">
+        <div class="card">
+          <div class="card-label">By category</div>
+          <div id="category-chart"></div>
+        </div>
+        <div class="card">
+          <div class="card-label">Follow-ups needing attention</div>
+          <div id="followup-queue"></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-label">Recently logged</div>
+        <div id="recent-list"></div>
+      </div>
+    </section>
+
+    <!-- NEW SESSION -->
+    <section class="view" id="view-log">
+      <div class="view-head">
+        <div>
+          <h1>Log a coaching session</h1>
+          <div class="sub">Capture what happened and why, so the record holds up on its own.</div>
+        </div>
+      </div>
+      <div id="log-banner"></div>
+      <form id="coaching-form" novalidate>
+        <div class="grid-2">
+          <div class="card">
+            <div class="card-label">Agent</div>
+            <div class="field">
+              <label for="agent-name">Agent name <span class="req">*</span></label>
+              <input type="text" id="agent-name" placeholder="e.g. Alex Morgan" autocomplete="off" required>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-label">Session metadata</div>
+            <div class="field-row">
+              <div class="field">
+                <label for="session-date">Date <span class="req">*</span></label>
+                <input type="date" id="session-date" required>
+              </div>
+              <div class="field">
+                <label for="session-duration">Duration</label>
+                <div class="select-wrap">
+                  <select id="session-duration">
+                    <option value="15">15 minutes</option>
+                    <option value="30">30 minutes</option>
+                    <option value="45" selected>45 minutes</option>
+                    <option value="60">60 minutes</option>
+                    <option value="90">90 minutes</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <div class="card-label">Coaching category</div>
+            <div class="field">
+              <label for="session-category">Primary category</label>
+              <div class="select-wrap">
+                <select id="session-category"></select>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-label">Coach attribution</div>
+            <div class="field">
+              <label for="coach-name">Conducted by <span class="req">*</span></label>
+              <input type="text" id="coach-name" value="Eric Boyle (Operations Manager)" required>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-label">Outcome</div>
+          <div class="outcome-picker" id="outcome-picker" role="radiogroup" aria-label="Session outcome"></div>
+        </div>
+
+        <div class="card">
+          <div class="card-label">Rationale</div>
+          <div class="field">
+            <label for="session-why">Why the coaching took place <span class="req">*</span></label>
+            <textarea id="session-why" placeholder="Performance trend, metric trigger, QA flag, or development objective..." required></textarea>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-label">Agenda &amp; content</div>
+          <div class="field">
+            <label for="session-covered">What was covered <span class="req">*</span></label>
+            <textarea id="session-covered" placeholder="Discussion topics, metric reviews, call breakdowns..." required></textarea>
+          </div>
+          <div class="field">
+            <label for="session-actions">Agreements &amp; next steps <span class="hint">optional</span></label>
+            <textarea id="session-actions" placeholder="What the agent committed to, and by when..." style="min-height: 70px;"></textarea>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-label">Follow-up</div>
+          <div class="toggle-row">
+            <div>
+              <div class="t-label">Requires a follow-up session</div>
+              <div class="t-sub">Adds this record to the follow-up queue on the dashboard.</div>
+            </div>
+            <label class="switch">
+              <input type="checkbox" id="followup-toggle">
+              <span class="track"></span>
+              <span class="thumb"></span>
+            </label>
+          </div>
+          <div class="followup-reveal" id="followup-reveal">
+            <div class="field">
+              <label for="followup-date">Follow-up due date</label>
+              <input type="date" id="followup-date">
+            </div>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary btn-block" id="submit-btn">Save &amp; log coaching session</button>
+        </div>
+        <div style="text-align:center; margin-top:10px; font-size:11.5px; color:var(--ink-muted);">Tip: press <span class="mono">⌘/Ctrl + Enter</span> to save from any field</div>
+      </form>
+    </section>
+
+    <!-- ARCHIVE -->
+    <section class="view" id="view-archive">
+      <div id="archive-list-wrap">
+        <div class="view-head">
+          <div>
+            <h1>Session archive</h1>
+            <div class="sub" id="archive-sub">All logged coaching sessions.</div>
+          </div>
+        </div>
+        <div class="archive-controls">
+          <div class="search-box">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="m21 21-4.3-4.3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            <input type="text" id="search-input" placeholder="Search by agent name...">
+          </div>
+          <div class="select-wrap"><select id="filter-category"><option value="">All categories</option></select></div>
+          <div class="select-wrap"><select id="filter-range">
+            <option value="all">All time</option>
+            <option value="30">Last 30 days</option>
+            <option value="month">This month</option>
+          </select></div>
+          <div class="select-wrap"><select id="sort-order">
+            <option value="logged-desc">Newest logged</option>
+            <option value="logged-asc">Oldest logged</option>
+            <option value="date-desc">Session date ↓</option>
+            <option value="agent-asc">Agent A–Z</option>
+          </select></div>
+        </div>
+        <div id="sessions-list" class="session-grid"></div>
+      </div>
+      <div id="session-detail-container"></div>
+    </section>
+
+  </main>
+
+  <footer class="no-print">Purolator Operations &bull; Coaching Hub &bull; Synced records for your organization</footer>
+</div>
+
+<div id="toast-host" aria-live="polite"></div>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------------- Config ---------------- */
+  var CATEGORIES = [
+    { key: "metrics",       label: "Metrics & Performance",         full: "Metrics & Performance (FCR / AHT)",        colorVar: "--cat-1" },
+    { key: "deescalation",  label: "De-escalation & CS",             full: "De-escalation & Customer Service",         colorVar: "--cat-2" },
+    { key: "routing",       label: "Account Routing & Verification", full: "Account Routing & Verification",           colorVar: "--cat-3" },
+    { key: "compliance",    label: "Process & Tool Compliance",      full: "Process & Tool Compliance",                colorVar: "--cat-4" },
+    { key: "qa",            label: "Quality Assurance / QA",         full: "Quality Assurance / QA Review",            colorVar: "--cat-5" },
+    { key: "development",   label: "Professional Development",       full: "General Professional Development",        colorVar: "--cat-6" }
+  ];
+  var OUTCOMES = [
+    { key: "on-track", title: "On track",             sub: "Responded well, no concerns",   pill: "good" },
+    { key: "monitor",  title: "Needs monitoring",      sub: "Improving, keep watching",       pill: "warning" },
+    { key: "escalate", title: "Escalation required",   sub: "Needs manager/HR involvement",   pill: "critical" }
+  ];
+  var CAT_BY_KEY = {}; CATEGORIES.forEach(function(c){ CAT_BY_KEY[c.key] = c; });
+  var OUT_BY_KEY = {}; OUTCOMES.forEach(function(o){ OUT_BY_KEY[o.key] = o; });
+
+  /* ---------------- State ---------------- */
+  var state = {
+    sessions: [],
+    loaded: false,
+    dbAvailable: null,     // null = unknown/pending, true/false once resolved
+    downloadsAvailable: null,
+    editingId: null,
+    activeView: "dashboard",
+    openDetailId: null
+  };
+  var db = null, downloadsCap = null, sessionsCol = null;
+
+  /* ---------------- Utilities ---------------- */
+  function $(sel, root){ return (root||document).querySelector(sel); }
+  function $all(sel, root){ return Array.prototype.slice.call((root||document).querySelectorAll(sel)); }
+  function escapeHtml(str){
+    if (str === undefined || str === null) return "";
+    return String(str).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#039;");
+  }
+  function todayISO(){ var d = new Date(); return d.toISOString().slice(0,10); }
+  function initials(name){
+    if (!name) return "?";
+    var parts = name.trim().split(/\s+/).filter(Boolean);
+    if (!parts.length) return "?";
+    if (parts.length === 1) return parts[0].slice(0,2).toUpperCase();
+    return (parts[0][0] + parts[parts.length-1][0]).toUpperCase();
+  }
+  function fmtDate(iso){
+    if (!iso) return "—";
+    var d = new Date(iso + "T00:00:00");
+    if (isNaN(d.getTime())) return iso;
+    return d.toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" });
+  }
+  function daysUntil(iso){
+    var target = new Date(iso + "T00:00:00").getTime();
+    var now = new Date(); now.setHours(0,0,0,0);
+    return Math.round((target - now.getTime()) / 86400000);
+  }
+  function toast(msg, isError){
+    var host = $("#toast-host");
+    var el = document.createElement("div");
+    el.className = "toast" + (isError ? " error" : "");
+    el.textContent = msg;
+    host.appendChild(el);
+    setTimeout(function(){ el.style.opacity = "0"; el.style.transition = "opacity .25s ease"; setTimeout(function(){ el.remove(); }, 260); }, 2600);
+  }
+  function catColor(key){ return "var(" + ((CAT_BY_KEY[key]||{}).colorVar || "--ink-muted") + ")"; }
+  function catBg(key){ var v = (CAT_BY_KEY[key]||{}).colorVar; return v ? "var(" + v + "-bg)" : "var(--surface-sunken)"; }
+
+  /* ---------------- Populate static selects/pickers ---------------- */
+  (function initSelects(){
+    var catSelect = $("#session-category");
+    CATEGORIES.forEach(function(c){
+      var o = document.createElement("option"); o.value = c.key; o.textContent = c.full; catSelect.appendChild(o);
+    });
+    var filterCat = $("#filter-category");
+    CATEGORIES.forEach(function(c){
+      var o = document.createElement("option"); o.value = c.key; o.textContent = c.label; filterCat.appendChild(o);
+    });
+    var picker = $("#outcome-picker");
+    OUTCOMES.forEach(function(o, i){
+      var btn = document.createElement("button");
+      btn.type = "button"; btn.className = "outcome-opt"; btn.dataset.key = o.key;
+      btn.setAttribute("role","radio");
+      btn.innerHTML = '<span class="o-title">'+escapeHtml(o.title)+'</span><span class="o-sub">'+escapeHtml(o.sub)+'</span>';
+      btn.addEventListener("click", function(){ setOutcome(o.key); });
+      picker.appendChild(btn);
+    });
+    setOutcome("on-track");
+  })();
+
+  function setOutcome(key){
+    $("#outcome-picker").dataset.value = key;
+    $all(".outcome-opt", $("#outcome-picker")).forEach(function(btn){
+      var checked = btn.dataset.key === key;
+      btn.dataset.checked = checked ? "true" : "false";
+      btn.setAttribute("aria-checked", checked ? "true" : "false");
+      if (checked){
+        var pillClass = OUT_BY_KEY[key].pill;
+        var colorVar = pillClass === "good" ? "var(--status-good)" : pillClass === "warning" ? "var(--status-warning)" : "var(--status-critical)";
+        var bgVar = pillClass === "good" ? "var(--status-good-bg)" : pillClass === "warning" ? "var(--status-warning-bg)" : "var(--status-critical-bg)";
+        btn.style.setProperty("--picker-color", colorVar);
+        btn.style.setProperty("--picker-bg", bgVar);
+      }
+    });
+  }
+
+  /* ---------------- View switching ---------------- */
+  function switchView(name, opts){
+    opts = opts || {};
+    state.activeView = name;
+    $all(".view").forEach(function(v){ v.classList.remove("active"); });
+    $("#view-" + name).classList.add("active");
+    $all(".nav-tab").forEach(function(t){ t.classList.toggle("active", t.dataset.view === name); });
+    if (name === "archive" && !opts.keepDetail){
+      closeDetail();
+    }
+    if (name === "dashboard") renderDashboard();
+    if (name === "archive") renderArchiveList();
+    $("#export-btn").hidden = !(state.downloadsAvailable && state.sessions.length);
+    if (!opts.silent) window.scrollTo({ top: 0, behavior: "instant" in window ? "instant" : "auto" });
+  }
+  $all(".nav-tab").forEach(function(tab){
+    tab.addEventListener("click", function(){
+      if (state.editingId && tab.dataset.view !== "log"){
+        cancelEdit();
+      }
+      switchView(tab.dataset.view);
+    });
+  });
+
+  /* ---------------- Form handling ---------------- */
+  var form = $("#coaching-form");
+  var fAgent = $("#agent-name"), fDate = $("#session-date"), fDuration = $("#session-duration"),
+      fCategory = $("#session-category"), fCoach = $("#coach-name"), fWhy = $("#session-why"),
+      fCovered = $("#session-covered"), fActions = $("#session-actions"),
+      fFollowToggle = $("#followup-toggle"), fFollowDate = $("#followup-date"), fFollowReveal = $("#followup-reveal");
+
+  fDate.value = todayISO();
+
+  fFollowToggle.addEventListener("change", function(){
+    var on = fFollowToggle.checked;
+    fFollowReveal.classList.toggle("open", on);
+    if (on && !fFollowDate.value){
+      var d = new Date(); d.setDate(d.getDate() + 7);
+      fFollowDate.value = d.toISOString().slice(0,10);
+    }
+  });
+
+  function clearInvalid(el){ el.classList.remove("invalid"); }
+  [fAgent, fDate, fCoach, fWhy, fCovered].forEach(function(el){
+    el.addEventListener("input", function(){ clearInvalid(el); });
+  });
+
+  function validateForm(){
+    var required = [fAgent, fDate, fCoach, fWhy, fCovered];
+    var firstInvalid = null;
+    required.forEach(function(el){
+      var empty = !String(el.value || "").trim();
+      el.classList.toggle("invalid", empty);
+      if (empty && !firstInvalid) firstInvalid = el;
+    });
+    if (firstInvalid){ firstInvalid.focus(); return false; }
+    return true;
+  }
+
+  function resetForm(){
+    form.reset();
+    fDate.value = todayISO();
+    fCoach.value = "Eric Boyle (Operations Manager)";
+    fFollowReveal.classList.remove("open");
+    setOutcome("on-track");
+    state.editingId = null;
+    $("#submit-btn").textContent = "Save & log coaching session";
+    $("#submit-btn").disabled = (state.dbAvailable === false);
+    var banner = $("#log-banner"); banner.innerHTML = "";
+    updateSyncBanner();
+  }
+
+  function cancelEdit(){
+    resetForm();
+  }
+
+  function populateFormForEdit(s){
+    fAgent.value = s.agentName || "";
+    fDate.value = s.date || todayISO();
+    fDuration.value = String(s.duration || 45);
+    fCategory.value = s.category || CATEGORIES[0].key;
+    fCoach.value = s.coachName || "";
+    fWhy.value = s.why || "";
+    fCovered.value = s.covered || "";
+    fActions.value = s.actionItems || "";
+    setOutcome(s.outcome || "on-track");
+    fFollowToggle.checked = !!s.followUpRequired;
+    fFollowReveal.classList.toggle("open", !!s.followUpRequired);
+    fFollowDate.value = s.followUpDate || "";
+    state.editingId = s.id;
+    $("#submit-btn").textContent = "Save changes";
+    var banner = $("#log-banner");
+    banner.innerHTML = '<div class="editing-banner">Editing session for ' + escapeHtml(s.agentName) +
+      ' <button type="button" class="btn btn-ghost btn-sm" id="cancel-edit-btn">Cancel edit</button></div>';
+    $("#cancel-edit-btn").addEventListener("click", cancelEdit);
+  }
+
+  function buildPayloadFromForm(){
+    return {
+      agentName: fAgent.value.trim(),
+      date: fDate.value,
+      duration: parseInt(fDuration.value, 10) || 45,
+      category: fCategory.value,
+      coachName: fCoach.value.trim(),
+      why: fWhy.value.trim(),
+      covered: fCovered.value.trim(),
+      actionItems: fActions.value.trim(),
+      outcome: $("#outcome-picker").dataset.value || "on-track",
+      followUpRequired: !!fFollowToggle.checked,
+      followUpDate: fFollowToggle.checked ? (fFollowDate.value || null) : null,
+      followUpDone: false
+    };
+  }
+
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    if (!validateForm()) return;
+    if (!sessionsCol){
+      toast("Live sync isn't available in this view, so this session can't be saved.", true);
+      return;
+    }
+    var payload = buildPayloadFromForm();
+    var submitBtn = $("#submit-btn");
+    submitBtn.disabled = true;
+    var wasEditing = !!state.editingId;
+
+    var p;
+    if (wasEditing){
+      var existing = state.sessions.find(function(s){ return s.id === state.editingId; });
+      payload.createdAt = existing ? existing.createdAt : Date.now();
+      payload.followUpDone = existing ? !!existing.followUpDone : false;
+      p = sessionsCol.doc(state.editingId).set(payload);
+    } else {
+      payload.createdAt = Date.now();
+      p = sessionsCol.add(payload);
+    }
+
+    p.then(function(){
+      toast(wasEditing ? "Session updated" : "Session saved");
+      resetForm();
+      switchView("archive");
+    }).catch(function(err){
+      submitBtn.disabled = false;
+      handleDbError(err, "save this session");
+    });
+  });
+
+  document.addEventListener("keydown", function(e){
+    var mod = e.metaKey || e.ctrlKey;
+    if (mod && e.key === "Enter" && state.activeView === "log"){
+      form.requestSubmit ? form.requestSubmit() : form.dispatchEvent(new Event("submit", {cancelable:true}));
+    }
+  });
+
+  /* ---------------- Dashboard rendering ---------------- */
+  function isThisMonth(iso){
+    if (!iso) return false;
+    var d = new Date(iso + "T00:00:00"), now = new Date();
+    return d.getFullYear() === now.getFullYear() && d.getMonth() === now.getMonth();
+  }
+  function isWithinDays(iso, days){
+    if (!iso) return false;
+    var diff = (Date.now() - new Date(iso + "T00:00:00").getTime()) / 86400000;
+    return diff >= 0 && diff <= days;
+  }
+
+  function renderDashboard(){
+    var sessions = state.sessions;
+    var banner = $("#dash-banner");
+    banner.innerHTML = "";
+    if (state.dbAvailable === false){
+      banner.innerHTML = '<div class="db-banner">Live sync isn\'t available in this view — figures below reflect this browser session only.</div>';
+    }
+
+    if (!state.loaded){
+      $("#stat-grid").innerHTML = Array(4).fill('<div class="stat-tile"><div class="skel" style="height:12px;width:60%;margin-bottom:10px;"></div><div class="skel" style="height:26px;width:40%;"></div></div>').join("");
+      $("#category-chart").innerHTML = '<div class="skel" style="height:120px;"></div>';
+      $("#followup-queue").innerHTML = '<div class="skel" style="height:120px;"></div>';
+      $("#recent-list").innerHTML = '<div class="skel" style="height:120px;"></div>';
+      return;
+    }
+
+    var total = sessions.length;
+    var thisMonth = sessions.filter(function(s){ return isThisMonth(s.date); }).length;
+    var avgDuration = total ? Math.round(sessions.reduce(function(a,s){ return a + (s.duration||0); }, 0) / total) : 0;
+    var agents = {}; sessions.forEach(function(s){ if (s.agentName) agents[s.agentName.toLowerCase()] = true; });
+    var agentCount = Object.keys(agents).length;
+    var dueFollowups = sessions.filter(function(s){ return s.followUpRequired && !s.followUpDone; });
+    var overdue = dueFollowups.filter(function(s){ return s.followUpDate && daysUntil(s.followUpDate) < 0; });
+
+    var stats = [
+      { label: "Total sessions", value: total, note: "all time" },
+      { label: "This month", value: thisMonth, note: new Date().toLocaleDateString(undefined,{month:"long"}) },
+      { label: "Avg. duration", value: total ? avgDuration + " min" : "—", note: "per session" },
+      { label: "Agents coached", value: agentCount, note: "distinct agents" }
+    ];
+    $("#stat-grid").innerHTML = stats.map(function(s){
+      return '<div class="stat-tile"><div class="s-label">'+escapeHtml(s.label)+'</div><div class="s-value tnum">'+escapeHtml(String(s.value))+'</div><div class="s-note">'+escapeHtml(s.note)+'</div></div>';
+    }).join("") + (function(){
+      if (!dueFollowups.length) return '<div class="stat-tile"><div class="s-label">Follow-ups due</div><div class="s-value tnum">0</div><div class="s-note">nothing pending</div></div>';
+      var cls = overdue.length ? "critical" : "warn";
+      var note = overdue.length ? (overdue.length + " overdue") : "on schedule";
+      return '<div class="stat-tile '+cls+'"><div class="s-label">Follow-ups due</div><div class="s-value tnum">'+dueFollowups.length+'</div><div class="s-note">'+escapeHtml(note)+'</div></div>';
+    })();
+
+    // category chart
+    var counts = {}; CATEGORIES.forEach(function(c){ counts[c.key] = 0; });
+    sessions.forEach(function(s){ if (counts[s.category] !== undefined) counts[s.category]++; });
+    var max = Math.max.apply(null, CATEGORIES.map(function(c){ return counts[c.key]; }).concat([1]));
+    if (!total){
+      $("#category-chart").innerHTML = '<div class="followup-empty">Log a session to see the category breakdown.</div>';
+    } else {
+      $("#category-chart").innerHTML = CATEGORIES.map(function(c){
+        var v = counts[c.key], pct = Math.round((v / max) * 100);
+        return '<div class="bar-row">'+
+          '<div class="b-label">'+escapeHtml(c.label)+'</div>'+
+          '<div class="bar-track"><div class="bar-fill" style="width:'+pct+'%; background:'+catColor(c.key)+';"></div></div>'+
+          '<div class="b-value tnum">'+v+'</div>'+
+        '</div>';
+      }).join("");
+    }
+
+    // follow-up queue
+    if (!dueFollowups.length){
+      $("#followup-queue").innerHTML = '<div class="followup-empty">No open follow-ups. Nice and clear.</div>';
+    } else {
+      var sorted = dueFollowups.slice().sort(function(a,b){
+        return (a.followUpDate||"9999").localeCompare(b.followUpDate||"9999");
+      });
+      $("#followup-queue").innerHTML = sorted.map(function(s){
+        var d = s.followUpDate ? daysUntil(s.followUpDate) : null;
+        var pill = 'pill-neutral', label = "No date set";
+        if (d !== null){
+          if (d < 0){ pill = "pill-critical"; label = "Overdue " + Math.abs(d) + "d"; }
+          else if (d <= 3){ pill = "pill-warning"; label = d === 0 ? "Due today" : "Due in " + d + "d"; }
+          else { pill = "pill-good"; label = "In " + d + "d"; }
+        }
+        return '<div class="list-row">'+
+          '<div class="avatar" style="width:32px;height:32px;font-size:11px;">'+escapeHtml(initials(s.agentName))+'</div>'+
+          '<div class="lr-main"><div class="lr-name">'+escapeHtml(s.agentName)+'</div><div class="lr-sub">'+fmtDate(s.followUpDate)+' · '+escapeHtml(CAT_BY_KEY[s.category] ? CAT_BY_KEY[s.category].label : "")+'</div></div>'+
+          '<div class="lr-actions">'+
+            '<span class="pill '+pill+'">'+escapeHtml(label)+'</span>'+
+            '<button class="btn btn-ghost btn-sm" data-done="'+s.id+'" title="Mark follow-up complete">Done</button>'+
+          '</div>'+
+        '</div>';
+      }).join("");
+    }
+
+    // recent
+    if (!total){
+      $("#recent-list").innerHTML = '<div class="empty-state"><div class="es-icon">🎯</div><div class="es-title">No coaching sessions yet</div><div class="es-sub">Log your first session and it will show up here, on the archive, and in the category breakdown above.</div><button class="btn btn-primary" id="dash-log-btn">Log a session</button></div>';
+    } else {
+      var recent = sessions.slice().sort(function(a,b){ return (b.createdAt||0) - (a.createdAt||0); }).slice(0,5);
+      $("#recent-list").innerHTML = recent.map(function(s){
+        var cat = CAT_BY_KEY[s.category];
+        return '<div class="list-row" data-open="'+s.id+'" style="cursor:pointer;">'+
+          '<div class="avatar">'+escapeHtml(initials(s.agentName))+'</div>'+
+          '<div class="lr-main"><div class="lr-name">'+escapeHtml(s.agentName)+'</div><div class="lr-sub">'+fmtDate(s.date)+' · '+escapeHtml(cat ? cat.label : "")+' · '+ (s.duration||0) +' min</div></div>'+
+          '<div class="lr-actions">'+outcomePillHtml(s.outcome)+'</div>'+
+        '</div>';
+      }).join("");
+    }
+  }
+
+  function outcomePillHtml(key){
+    var o = OUT_BY_KEY[key] || OUT_BY_KEY["on-track"];
+    return '<span class="pill pill-'+o.pill+'">'+escapeHtml(o.title)+'</span>';
+  }
+
+  function markFollowupDone(id){
+    if (!sessionsCol) return;
+    sessionsCol.doc(id).update({ followUpDone: true, followUpCompletedAt: Date.now() })
+      .then(function(){ toast("Follow-up marked complete"); })
+      .catch(function(err){ handleDbError(err, "update this follow-up"); });
+  }
+
+  /* ---------------- Archive rendering ---------------- */
+  var searchInput = $("#search-input"), filterCategory = $("#filter-category"), filterRange = $("#filter-range"), sortOrder = $("#sort-order");
+  [searchInput, filterCategory, filterRange, sortOrder].forEach(function(el){
+    el.addEventListener("input", renderArchiveList);
+    el.addEventListener("change", renderArchiveList);
+  });
+
+  function getFilteredSessions(){
+    var q = searchInput.value.trim().toLowerCase();
+    var cat = filterCategory.value;
+    var range = filterRange.value;
+    var list = state.sessions.filter(function(s){
+      if (q && !(s.agentName||"").toLowerCase().includes(q)) return false;
+      if (cat && s.category !== cat) return false;
+      if (range === "30" && !isWithinDays(s.date, 30)) return false;
+      if (range === "month" && !isThisMonth(s.date)) return false;
+      return true;
+    });
+    var order = sortOrder.value;
+    list.sort(function(a,b){
+      if (order === "logged-desc") return (b.createdAt||0) - (a.createdAt||0);
+      if (order === "logged-asc") return (a.createdAt||0) - (b.createdAt||0);
+      if (order === "date-desc") return (b.date||"").localeCompare(a.date||"");
+      if (order === "agent-asc") return (a.agentName||"").localeCompare(b.agentName||"");
+      return 0;
+    });
+    return list;
+  }
+
+  function renderArchiveList(){
+    $("#archive-count").textContent = state.sessions.length;
+    $("#export-btn").hidden = !(state.downloadsAvailable && state.sessions.length);
+    if (!state.loaded){
+      $("#sessions-list").innerHTML = Array(3).fill('<div class="skel" style="height:90px;"></div>').join('<div style="height:12px;"></div>');
+      return;
+    }
+    var list = getFilteredSessions();
+    $("#archive-sub").textContent = state.sessions.length
+      ? state.sessions.length + " session" + (state.sessions.length === 1 ? "" : "s") + " logged"
+      : "All logged coaching sessions.";
+
+    if (!state.sessions.length){
+      $("#sessions-list").innerHTML = '<div class="empty-state"><div class="es-icon">📋</div><div class="es-title">No sessions logged yet</div><div class="es-sub">Once you log a coaching session it will appear here, searchable and exportable.</div><button class="btn btn-primary" id="archive-log-btn">Log your first session</button></div>';
+      return;
+    }
+    if (!list.length){
+      $("#sessions-list").innerHTML = '<div class="empty-state"><div class="es-icon">🔍</div><div class="es-title">No matches</div><div class="es-sub">Try a different search term, category, or date range.</div></div>';
+      return;
+    }
+    $("#sessions-list").innerHTML = list.map(function(s){
+      var cat = CAT_BY_KEY[s.category];
+      var followBit = "";
+      if (s.followUpRequired && !s.followUpDone){
+        var d = s.followUpDate ? daysUntil(s.followUpDate) : null;
+        var pc = d !== null && d < 0 ? "pill-critical" : (d !== null && d <= 3 ? "pill-warning" : "pill-neutral");
+        followBit = '<span class="pill '+pc+'">Follow-up '+fmtDate(s.followUpDate)+'</span>';
+      }
+      return '<div class="session-card" data-open="'+s.id+'">'+
+        '<div class="avatar">'+escapeHtml(initials(s.agentName))+'</div>'+
+        '<div class="sc-body">'+
+          '<h3>'+escapeHtml(s.agentName)+'</h3>'+
+          '<div class="sc-tags">'+
+            '<span class="chip" style="background:'+catBg(s.category)+'; color:'+catColor(s.category)+';"><span class="dot" style="background:'+catColor(s.category)+';"></span>'+escapeHtml(cat ? cat.label : "Uncategorized")+'</span>'+
+            outcomePillHtml(s.outcome)+
+            followBit+
+          '</div>'+
+          '<div class="sc-meta"><span>'+fmtDate(s.date)+'</span><span>Coach: '+escapeHtml(s.coachName)+'</span></div>'+
+        '</div>'+
+        '<div class="sc-right">'+
+          '<span class="badge-duration tnum">'+ (s.duration||0) +' min</span>'+
+        '</div>'+
+      '</div>';
+    }).join("");
+  }
+  function goLog(){
+    if (state.editingId) cancelEdit();
+    switchView("log");
+  }
+
+  document.addEventListener("click", function(e){
+    var doneBtn = e.target.closest("[data-done]");
+    if (doneBtn){ markFollowupDone(doneBtn.getAttribute("data-done")); return; }
+    if (e.target.id === "dash-log-btn" || e.target.id === "archive-log-btn"){ goLog(); return; }
+    var openRow = e.target.closest("[data-open]");
+    if (openRow){
+      if (state.activeView !== "archive") switchView("archive", { keepDetail: true });
+      openDetail(openRow.getAttribute("data-open"));
+      return;
+    }
+  });
+
+  /* ---------------- Detail view ---------------- */
+  function closeDetail(){
+    state.openDetailId = null;
+    $("#session-detail-container").innerHTML = "";
+    $("#archive-list-wrap").style.display = "";
+  }
+
+  function openDetail(id){
+    var s = state.sessions.find(function(x){ return x.id === id; });
+    if (!s) {
+      if (state.openDetailId === id) closeDetail();
+      toast("That session couldn't be found — it may have been deleted.", true);
+      return;
+    }
+    state.openDetailId = id;
+    $("#archive-list-wrap").style.display = "none";
+    var cat = CAT_BY_KEY[s.category];
+    var followHtml = "";
+    if (s.followUpRequired){
+      var d = s.followUpDate ? daysUntil(s.followUpDate) : null;
+      var stateClass = "state-good", title = "Follow-up scheduled", sub = fmtDate(s.followUpDate);
+      if (s.followUpDone){ stateClass = "state-good"; title = "Follow-up completed"; sub = "Marked done"; }
+      else if (d !== null && d < 0){ stateClass = "state-critical"; title = "Follow-up overdue"; sub = fmtDate(s.followUpDate) + " · " + Math.abs(d) + " day" + (Math.abs(d)===1?"":"s") + " late"; }
+      else if (d !== null && d <= 3){ stateClass = "state-warning"; title = "Follow-up due soon"; sub = fmtDate(s.followUpDate); }
+      followHtml = '<div class="followup-box '+stateClass+'">'+
+        '<div><div class="fb-title">'+title+'</div><div class="fb-sub">'+sub+'</div></div>'+
+        (s.followUpDone ? '' : '<button class="btn btn-secondary btn-sm no-print" data-done="'+s.id+'">Mark complete</button>')+
+      '</div>';
+    }
+    $("#session-detail-container").innerHTML =
+      '<button class="back-link no-print" id="back-to-archive">&larr; Back to all sessions</button>'+
+      '<div class="card" id="printable-detail">'+
+        '<div class="detail-head">'+
+          '<div class="dh-left">'+
+            '<div class="avatar">'+escapeHtml(initials(s.agentName))+'</div>'+
+            '<div><h2>'+escapeHtml(s.agentName)+'</h2>'+
+              '<div class="dh-tags">'+
+                '<span class="chip" style="background:'+catBg(s.category)+'; color:'+catColor(s.category)+';"><span class="dot" style="background:'+catColor(s.category)+';"></span>'+escapeHtml(cat ? cat.full : "Uncategorized")+'</span>'+
+                outcomePillHtml(s.outcome)+
+              '</div>'+
+            '</div>'+
+          '</div>'+
+          '<div class="detail-actions no-print">'+
+            '<span class="badge-duration tnum">'+(s.duration||0)+' min</span>'+
+            '<button class="btn btn-secondary btn-sm" id="print-btn">Print</button>'+
+            '<button class="btn btn-secondary btn-sm" id="edit-btn">Edit</button>'+
+            '<button class="btn btn-danger btn-sm" id="delete-btn" data-armed="false">Delete</button>'+
+          '</div>'+
+        '</div>'+
+        '<div class="kv-grid">'+
+          '<div class="kv"><div class="kv-label">Date conducted</div><div class="kv-value">'+fmtDate(s.date)+'</div></div>'+
+          '<div class="kv"><div class="kv-label">Conducted by</div><div class="kv-value">'+escapeHtml(s.coachName)+'</div></div>'+
+          '<div class="kv"><div class="kv-label">Duration</div><div class="kv-value tnum">'+(s.duration||0)+' minutes</div></div>'+
+        '</div>'+
+        '<div class="section-heading">Why the coaching took place</div>'+
+        '<div class="content-box">'+escapeHtml(s.why)+'</div>'+
+        '<div class="section-heading">What was covered</div>'+
+        '<div class="content-box">'+escapeHtml(s.covered)+'</div>'+
+        (s.actionItems ? '<div class="section-heading">Agreements &amp; next steps</div><div class="content-box">'+escapeHtml(s.actionItems)+'</div>' : '')+
+        followHtml+
+      '</div>';
+
+    $("#back-to-archive").addEventListener("click", closeDetail);
+    $("#print-btn").addEventListener("click", function(){ window.print(); });
+    $("#edit-btn").addEventListener("click", function(){
+      populateFormForEdit(s);
+      switchView("log");
+    });
+    var delBtn = $("#delete-btn");
+    delBtn.addEventListener("click", function(){
+      if (delBtn.dataset.armed !== "true"){
+        delBtn.dataset.armed = "true";
+        delBtn.textContent = "Confirm delete?";
+        setTimeout(function(){
+          if (delBtn && delBtn.dataset.armed === "true"){ delBtn.dataset.armed = "false"; delBtn.textContent = "Delete"; }
+        }, 4000);
+        return;
+      }
+      deleteSession(s.id);
+    });
+  }
+
+  function deleteSession(id){
+    if (!sessionsCol){ toast("Live sync isn't available, so this can't be deleted here.", true); return; }
+    sessionsCol.doc(id).delete().then(function(){
+      toast("Session deleted");
+      closeDetail();
+    }).catch(function(err){ handleDbError(err, "delete this session"); });
+  }
+
+  /* ---------------- db error handling ---------------- */
+  function handleDbError(err, action){
+    var code = err && err.code;
+    var msg = "Something went wrong trying to " + action + ".";
+    if (code === "quota_exceeded") msg = "The record store is full — remove an old session before adding new ones.";
+    else if (code === "resource_exhausted") msg = "Too many changes at once — wait a moment and try again.";
+    else if (code === "revoked") msg = "Access to live data was revoked for this view.";
+    else if (code === "invalid_argument") msg = "That entry couldn't be saved as written — check the fields and try again.";
+    else if (code === "unavailable") msg = "Connection hiccup — please try again.";
+    toast(msg, true);
+  }
+
+  /* ---------------- Capability bootstrap ---------------- */
+  function updateSyncBanner(){
+    var logBanner = $("#log-banner");
+    var notice = logBanner.querySelector(".db-banner");
+    if (state.dbAvailable === false){
+      if (!notice){
+        notice = document.createElement("div");
+        notice.className = "db-banner";
+        notice.textContent = "Live sync isn't available in this view — sessions can't be saved to the shared record here.";
+        logBanner.insertBefore(notice, logBanner.firstChild);
+      }
+      $("#submit-btn").disabled = true;
+    } else if (notice){
+      notice.remove();
+    }
+  }
+
+  function renderAll(){
+    updateSyncBanner();
+    if (state.activeView === "dashboard") renderDashboard();
+    if (state.activeView === "archive"){
+      if (state.openDetailId) openDetail(state.openDetailId);
+      else renderArchiveList();
+    }
+    $("#export-btn").hidden = !(state.downloadsAvailable && state.sessions.length);
+    $("#archive-count").textContent = state.sessions.length;
+  }
+
+  function docToSession(doc){
+    var data = doc.data() || {};
+    data.id = doc.id;
+    return data;
+  }
+
+  async function boot(){
+    var claudeApi = window.claude;
+    if (!claudeApi || typeof claudeApi.use !== "function"){
+      state.dbAvailable = false; state.downloadsAvailable = false; state.loaded = true;
+      renderAll();
+      return;
+    }
+    var dbPromise = claudeApi.use("db");
+    var dlPromise = claudeApi.use("downloads");
+    db = await dbPromise;
+    downloadsCap = await dlPromise;
+    state.dbAvailable = !!db;
+    state.downloadsAvailable = !!downloadsCap;
+
+    if (!db){
+      state.loaded = true;
+      renderAll();
+      return;
+    }
+    sessionsCol = db.collection("sessions");
+    sessionsCol.orderBy("createdAt", "desc").limit(500).onSnapshot(function(snap){
+      state.sessions = snap.docs.map(docToSession);
+      state.loaded = true;
+      renderAll();
+    }, function(err){
+      state.loaded = true;
+      handleDbError(err, "load coaching sessions");
+      renderAll();
+    });
+  }
+
+  /* ---------------- Export ---------------- */
+  function buildCsv(sessions){
+    var rows = [["Agent Name","Date","Duration (min)","Category","Coach / Conducted By","Outcome","Why Coaching Took Place","What Was Covered","Agreements & Next Steps","Follow-up Required","Follow-up Date","Follow-up Complete"]];
+    sessions.forEach(function(s){
+      var cat = CAT_BY_KEY[s.category]; var out = OUT_BY_KEY[s.outcome];
+      rows.push([
+        s.agentName||"", s.date||"", String(s.duration||""), cat?cat.full:"", s.coachName||"",
+        out?out.title:"", s.why||"", s.covered||"", s.actionItems||"",
+        s.followUpRequired ? "Yes" : "No", s.followUpDate||"", s.followUpDone ? "Yes" : "No"
+      ]);
+    });
+    var csv = "﻿" + rows.map(function(r){
+      return r.map(function(cell){ return '"' + String(cell).replace(/"/g,'""').replace(/\r?\n/g," ") + '"'; }).join(",");
+    }).join("\r\n");
+    return csv;
+  }
+
+  $("#export-btn").addEventListener("click", async function(){
+    if (!downloadsCap){ toast("Export isn't available in this view.", true); return; }
+    if (!state.sessions.length){ toast("No sessions to export yet."); return; }
+    var csv = buildCsv(getExportSet());
+    var filename = "Purolator_Coaching_Export_" + todayISO() + ".csv";
+    try{
+      await downloadsCap.save({ filename: filename, data: new Blob([csv], { type: "text/csv" }) });
+      toast("Export saved");
+    } catch(err){
+      var code = err && err.code;
+      if (code === "declined") return;
+      if (code === "rate_limited") toast("A save prompt is already open — try again in a moment.", true);
+      else toast("Couldn't export right now. Please try again.", true);
+    }
+  });
+  function getExportSet(){
+    // Export honors current archive filters when the user is looking at the archive, otherwise all sessions.
+    return state.activeView === "archive" ? getFilteredSessions() : state.sessions;
+  }
+
+  /* ---------------- Init ---------------- */
+  switchView("dashboard", { silent: true });
+  renderAll();
+  boot();
+})();
+</script>
